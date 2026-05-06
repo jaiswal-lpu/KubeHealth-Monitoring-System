@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubehealth-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubehealth
+  template:
+    metadata:
+      labels:
+        app: kubehealth
+    spec:
+      containers:
+      - name: kubehealth-container
+        image: nginx
+        ports:
+        - containerPort: 80
